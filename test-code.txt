@@ -1,0 +1,16 @@
+base string := "select * from champs where 1=1"
+
+guessedChamps []Champ := jsonMagic()
+
+foreach champ in guessedChamps {
+	if champ.Gender == 0 {
+		base += "and `Gender` != (select `Gender` from champs where `Name` = "+ champ.Name +")"
+	}
+
+	if champ.Position == 0 {
+		positions[] string := query()
+		foreach position in positions {
+			base += "and `Position` not like "+position
+		}
+	}
+}
