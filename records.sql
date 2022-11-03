@@ -115,7 +115,7 @@ INSERT INTO `champs` VALUES ('Singed', 'Male', 'Top', 'Human,Chemically Altered'
 INSERT INTO `champs` VALUES ('Sion', 'Male', 'Top', 'Revenant', 'Mana', 'Melee', 'Noxus', 2009);
 INSERT INTO `champs` VALUES ('Sivir', 'Female', 'Bottom', 'Human', 'Mana', 'Ranged', 'Shurima', 2009);
 INSERT INTO `champs` VALUES ('Skarner', 'Male', 'Jungle', 'Brackern', 'Mana', 'Melee', 'Shurima', 2011);
-INSERT INTO `champs` VALUES ('Sona', 'Female', 'Support', 'Human,Magicborn', 'Mana', 'Ranged', 'Demacia', 2010);
+INSERT INTO `champs` VALUES ('Sona', 'Female', 'Support', 'Human,Magicborn', 'Mana', 'Ranged', 'Ionia,Demacia', 2010);
 INSERT INTO `champs` VALUES ('Soraka', 'Female', 'Support', 'Celestial', 'Mana', 'Ranged', 'Targon,Ionia', 2009);
 INSERT INTO `champs` VALUES ('Swain', 'Male', 'Middle,Support', 'Human,Magically Altered', 'Mana', 'Ranged', 'Noxus', 2010);
 INSERT INTO `champs` VALUES ('Sylas', 'Male', 'Middle', 'Human,Magicborn', 'Mana', 'Melee', 'Demacia,Freljord', 2019);
