@@ -19,6 +19,8 @@ type Champ struct {
 	ReleaseYear int
 }
 
+// Guesses from the frontend, 0 - red/wrong, 1 - amber/nearly, 2 - green/good
+// In release years: 0 - lower, 1 - higher, 2 - exact
 type Guess struct {
 	Name        string
 	Gender      byte
@@ -31,13 +33,25 @@ type Guess struct {
 }
 
 func Controller_Champs(w http.ResponseWriter, r *http.Request) {
+	switch r.Method {
+	case http.MethodPost:
+		var guess Guess
 
+		if !DecodeRequest(w, r, &guess) {
+			return
+		}
+
+		QueryBuilder(guess)
+
+		fmt.Println("\n" + sqlQuery)
+
+		SendResponse(w, struct{}{})
+	}
 }
 
 // Controller_Champs_Name returns the champ with the given name
 func Controller_Champs_Name(w http.ResponseWriter, r *http.Request) {
 	name := mux.Vars(r)["name"]
-	fmt.Println(name)
 
 	result, err := GetChamp(name)
 	if err != nil {

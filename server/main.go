@@ -37,8 +37,11 @@ func DecodeRequest(w http.ResponseWriter, r *http.Request, i any) bool {
 }
 
 var db *sql.DB
+var sqlQuery string
 
 func main() {
+	sqlQuery = "SELECT `Name` FROM `Champs` WHERE 1=1 "
+
 	var err error
 	db, err = sql.Open("mysql", "root:cica123@tcp(localhost:3306)/loldle")
 	if err != nil {
