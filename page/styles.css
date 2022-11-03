@@ -11,14 +11,13 @@ https://wallpaperset.com/w/full/8/7/b/482869.jpg
 */
 
 body {
-    background-image: url("https://wallpaperset.com/w/full/8/7/b/482869.jpg");
+    background-image: url("https://loldle.net/img/WallpaperDark.20d3d6f6.webp");
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
 }
 
 .container {
-    background-color: rgba(0, 0, 0, 0.7);
     height: 100vh;
     width: 100vw;
     margin: 0 auto;
