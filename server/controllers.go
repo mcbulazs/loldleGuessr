@@ -35,17 +35,49 @@ type Guess struct {
 func Controller_Champs(w http.ResponseWriter, r *http.Request) {
 	switch r.Method {
 	case http.MethodPost:
-		var guess Guess
+		sqlQuery = "SELECT `Name` FROM `Champs` WHERE 1=1 "
+		var guesses []Guess
 
-		if !DecodeRequest(w, r, &guess) {
+		if !DecodeRequest(w, r, &guesses) {
 			return
 		}
 
-		QueryBuilder(guess)
+		for _, guess := range guesses {
+			QueryBuilder(guess)
+		}
+
+		var possibleGuesses []string
+		var nextGuess string
+		rows, err := db.Query(sqlQuery)
+		if err != nil {
+			return
+		}
+		defer rows.Close()
+		for rows.Next() {
+			rows.Scan(&nextGuess)
+			possibleGuesses = append(possibleGuesses, nextGuess)
+		}
 
 		fmt.Println("\n" + sqlQuery)
 
-		SendResponse(w, struct{}{})
+		SendResponse(w, possibleGuesses)
+
+	case http.MethodGet:
+		var allChamps []string
+		var nextChamp string
+
+		rows, err := db.Query("SELECT `Name` FROM `Champs`")
+		if err != nil {
+			return
+		}
+		defer rows.Close()
+
+		for rows.Next() {
+			rows.Scan(&nextChamp)
+			allChamps = append(allChamps, nextChamp)
+		}
+
+		SendResponse(w, allChamps)
 	}
 }
 
