@@ -6,12 +6,8 @@
     color: white;
 }
 
-/*
-https://wallpaperset.com/w/full/8/7/b/482869.jpg
-*/
-
 body {
-    background-image: url("https://loldle.net/img/WallpaperDark.20d3d6f6.webp");
+    background-image: url("background.webp");
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
@@ -64,4 +60,59 @@ body {
 #repoLink {
     width: 10%;
     filter: invert(80%);
+}
+
+.flex {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 2vh;
+}
+
+.guessed-champs-header, .guessed-champs {
+    display: flex;
+    justify-content: space-between;
+    gap: 2vw;
+    width: 60vw;
+}
+
+.guessed-champs {
+    flex-direction: column-reverse;
+}
+
+.guessed-champs-header > span {
+    font-family: 'Friz Quadrata Std,Mobilo,Helvetica,Arial';
+}
+
+.guessed-champ {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    gap: 1vw;
+}
+
+.character > img {
+    width: 100%;
+}
+
+.guessed-champ > div {
+    aspect-ratio: 1/1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Friz Quadrata Std,Mobilo,Helvetica,Arial';
+    font-size: 1.5vw;
+    text-align: center;
+    border: 2px solid gray;
+}
+
+.wrong {
+    background-color: red;
+}
+
+.nearly {
+    background-color: orange;
+}
+
+.good {
+    background-color: green;
 }
